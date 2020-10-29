@@ -1,58 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Creative Colorlib SignUp Form</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Custom Theme files -->
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- //Custom Theme files -->
-<!-- web font -->
-<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-<!-- //web font -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<title>HP STSE</title>
 </head>
+
 <body>
-	<!-- main -->
-	<div class="main-w3layouts wrapper">
-		<h1>Creative SignUp Form</h1>
-		<div class="main-agileinfo">
-			<div class="agileits-top">
-				<form action="#" method="post">
-					<input class="text" type="text" name="Username" placeholder="Username" required="">
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="password" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-					<div class="wthree-text">
-						<label class="anim">
-							<input type="checkbox" class="checkbox" required="">
-							<span>I Agree To The Terms & Conditions</span>
-						</label>
-						<div class="clear"> </div>
+	<?php include 'header.php'; ?>
+	<h1 class="text-center main-heading">
+		Sign In
+	</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 login-form">
+				<form action="form.php" method="post">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Email</label>
+							<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Password</label>
+							<input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+						</div>
 					</div>
-					<input type="submit" value="SIGNUP">
+					<div class="form-group col-md-12">
+						<label for="inputAddress">Address</label>
+						<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+					</div>
+					<div class="form-group col-md-12">
+						<label for="inputAddress2">Address 2</label>
+						<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputCity">City</label>
+							<input type="text" class="form-control" id="inputCity">
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputState">State</label>
+							<select id="inputState" class="form-control">
+								<option selected>Choose...</option>
+								<option>...</option>
+							</select>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="inputZip">Zip</label>
+							<input type="text" class="form-control" id="inputZip">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-check col-md-12">
+							<input class="form-check-input" type="checkbox" id="gridCheck">
+							<label class="form-check-label" for="gridCheck">
+								Check me out
+							</label>
+						</div>
+					</div>
+					<div class="form-check col-md-12">
+						<button type="submit" class="btn btn-primary" style="width: 100%;">Sign in</button>
+					</div>
+
 				</form>
-				<p>Don't have an Account? <a href="#"> Login Now!</a></p>
 			</div>
 		</div>
-		<!-- copyright -->
-		<div class="colorlibcopy-agile">
-			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
-		</div>
-		<!-- //copyright -->
-		<ul class="colorlib-bubbles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
 	</div>
-	<!-- //main -->
+	<?php include 'footer.php'; ?>
 </body>
+<!-- scripts for bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </html>
