@@ -19,6 +19,7 @@
 -- Table structure for table `Admin`
 --
 
+USE HP_STSE;
 DROP TABLE IF EXISTS `Admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;

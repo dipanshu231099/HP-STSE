@@ -15,7 +15,10 @@ session_start();
 </head>
 
 <body>
-	<?php include 'header.php'; ?>
+	<?php
+		session_destroy();
+		include 'header.php';
+	?>
 	
   <div class="container">
     <div class="row">
