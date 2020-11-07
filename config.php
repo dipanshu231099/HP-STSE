@@ -2,8 +2,8 @@
 
 return array(
     'host' => 'localhost',
-    'username' => 'username',
-    'password' => 'password',
+    'username' => 'root',
+    'password' => '',
     'dbname' => 'HP_STSE',
 );
 

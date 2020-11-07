@@ -59,36 +59,41 @@ session_start();
               <label for="mname">Mother's Name</label>
               <input type="text" class="form-control" id="mname" placeholder="Mother's Name" name="mname" required>
             </div>
-            <div class="form-group col-md-6">
+
+            <div class="form-group col-md-2">
               <label for="gender">Gender</label>
-              <input list="browsers" name="browser" class="form-control" id="gender" placeholder="Gender" name="gender" required>
-                <datalist id="browsers">
-                  <option value="Male">
-                  <option value="Female">
+              <input list="bin" class="form-control" id="gender" placeholder="" name="gender" required>
+                <datalist id="bin">
+                  <option  value='Male'  >Male</option><option  value='Female'  >Female</option>
                 </datalist>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="mname">Date of Birth</label>
+              <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" required>
             </div>
             <div class="form-group col-md-4">
               <label for="area">Area in which candidate resides</label>
-              <input list="browser" name="browser" class="form-control" id="area" placeholder="Area" name="area" required>
-                <datalist id="browser">
-                  <option value="Rural">
-                  <option value="Urban">`
+              <input list="bin" class="form-control" id="area" placeholder="" name="area" required>
+                <datalist id="bin">
+                  <option  value='Rural'  >Rural</option><option  value='Urban'  >Urban</option>
                 </datalist>
             </div>
             <div class="form-group col-md-4">
               <label for="caste">Caste Category of Candidate</label>
-              <input list="category" name="category" class="form-control" id="caste" placeholder="Caste" name="caste" required>
-                <datalist id="category">
-                  <option value="EWS"><option value="General"><option value="OBC"><option value="ST"><option value="SC">
+              <input list="bin" class="form-control" id="caste" placeholder="" name="caste" required>
+                <datalist id="bin">
+                  <option value="EWS">EWS</option><option value="General">General</option><option value="OBC">OBC</option><option value="ST">ST</option><option value="SC">SC</option>
                 </datalist>
             </div>
             <div class="form-group col-md-4">
-              <label for="Disability">Disability Status</label>
-              <input list="Disability" name="category" class="form-control" id="disability" placeholder="Disability" name="caste" required>
-                <datalist id="Disability">
-                  <option value="AID"><option value="BLV"><option value="DH"><option value="LD"><option value="MD"><option value="NONE">
+              <label for="disability">Disability Status</label>
+              <input list="bin" class="form-control" id="disability" placeholder="" name="disability" required>
+                <datalist id="bin">
+                  <option value="AID">AID</option><option value="BLV">BLV</option><option value="DH">DH</option><option value="LD">LD</option><option value="MD">MD</option><option value="NONE">NONE</option>
                 </datalist>
             </div>
+            
             
             <div class="col-sm-12">
               <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
@@ -108,7 +113,7 @@ session_start();
               <label for="state">State</label>
               <input list="statecategory" class="form-control validate[required, custom[onlyNumberSp], minSize[6]]inputbox" id="state" placeholder="" name="state" required>
                 <datalist id="statecategory">
-                  <option value="HP"><option value="Other">
+                  <option value="HP">HP</option><option value="Other">Other</option>
                 </datalist>
             </div>
 

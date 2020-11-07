@@ -98,6 +98,45 @@ LOCK TABLES `Students_2020` WRITE;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+DROP TABLE IF EXISTS `Students_Application_2020`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Students_Application_2020` (
+  	`applicantname` varchar(30) NOT NULL,
+  	`fathername` varchar(30) DEFAULT NULL,
+	`mothername` varchar(30) DEFAULT NULL,
+   	`gender` varchar(30) DEFAULT NULL,
+   	`date_of_birth` date DEFAULT NULL,
+	`area` varchar(30) DEFAULT NULL,
+  	`caste` varchar(30) DEFAULT NULL,
+  	`disability` varchar(30) DEFAULT NULL,
+    `add1` varchar(30) DEFAULT NULL,
+  	`add2` varchar(30) DEFAULT NULL,
+  	`state` varchar(30) NOT NULL,
+  	`district` varchar(30) NOT NULL,
+  	`pincode` int NOT NULL,
+  	`type_of_ins` varchar(30) DEFAULT NULL,
+  	`stu_of_ken` varchar(30) DEFAULT NULL,
+  	`med_of_exam1` varchar(30) DEFAULT NULL,
+  	`med_of_exam2` varchar(30) DEFAULT NULL,
+  	`fedu` varchar(30) DEFAULT NULL,
+  	`focc` varchar(30) DEFAULT NULL,
+  	`medu` varchar(30) DEFAULT NULL,
+  	`mocc` varchar(30) DEFAULT NULL,
+  	`family_members` int NOT NULL,
+  	`brothers` int NOT NULL,
+  	`sisters` int NOT NULL,
+  	`level_in_family` varchar(30) DEFAULT NULL,
+  	`income` varchar(30) DEFAULT NULL,
+  	`email` varchar(100) NOT NULL,
+  	
+  	`contact_number` varchar(11) DEFAULT NULL,
+  	`aadhar` varchar(100) NOT NULL,
+  	`telephone` varchar(11) DEFAULT NULL,
+  	`exam_center` varchar(50) DEFAULT NULL,
+  	
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
