@@ -19,13 +19,21 @@ $passwordConfirm = $_POST['passwordConfirm'];
 $OTP = $_POST['otp'];
 
 if($password == $passwordConfirm){
-	$sql = "INSERT INTO Students_2020 (firstname, lastname, email, school, schoolRegNo, password) VALUES('$firstName', '$lastName', '$email', '$school', '$schoolRegNo', '$password')";
+	if($OTP==$_SESSION['OTP']){
+		$sql = "INSERT INTO Students_2020 (firstname, lastname, email, school, schoolRegNo, password) VALUES('$firstName', '$lastName', '$email', '$school', '$schoolRegNo', '$password')";
 
-	if($conn->query($sql) !== TRUE ){
-		# show error
-		echo "Error: ".$sql."<br>".$conn->error;
+		if($conn->query($sql) !== TRUE ){
+			# show error
+			echo "Error: ".$sql."<br>".$conn->error;
+		}
+	}
+	else{
+		$_SESSION["otp"] = "some random thing that user can't guess. He need to now get another otp";
+
+		
 	}
 
+	$_SESSION["otp"] = "some random thing that user can't guess. He need to now get another otp";
 	# set login_session=1
 	# redirect to dashboard
 
