@@ -30,7 +30,7 @@ if(isset($_POST['type'])){
         $_SESSION['type'] = $type;
         $_SESSION['email']=$row['email'];
         $result -> free_result();
-        header("Location: index.php");
+        header("Location: dashboard.php");
     } else {
         $_SESSION['loginStatus']=-1;
         unset($_SESSION['email']);

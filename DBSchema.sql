@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Linux (x86_64)
 --
 -- Host: localhost    Database: HP_STSE
 -- ------------------------------------------------------
--- Server version	8.0.22-0ubuntu0.20.04.2
+-- Server version	8.0.20-0ubuntu0.19.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -19,7 +19,7 @@
 -- Table structure for table `Admin`
 --
 
-USE DATABASE `HP_STSE`
+USE HP_STSE;
 DROP TABLE IF EXISTS `Admin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -73,17 +73,18 @@ DROP TABLE IF EXISTS `Students_2020`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Students_2020` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(30) NOT NULL,
-  `lastname` varchar(30) NOT NULL,
+  `lastname` varchar(30) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `school` varchar(100) NOT NULL,
   `category` varchar(30) DEFAULT NULL,
   `fathername` varchar(30) DEFAULT NULL,
   `mothername` varchar(30) DEFAULT NULL,
-  `date_of_birth` varchar(30) NOT NULL,
-  `contact_number` varchar(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `date_of_birth` date DEFAULT NULL,
+  `contact_number` varchar(11) DEFAULT NULL,
+  `schoolRegNo` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -97,6 +98,45 @@ LOCK TABLES `Students_2020` WRITE;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+DROP TABLE IF EXISTS `Students_Application_2020`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Students_Application_2020` (
+  	`applicantname` varchar(30) NOT NULL,
+  	`fathername` varchar(30) DEFAULT NULL,
+	`mothername` varchar(30) DEFAULT NULL,
+   	`gender` varchar(30) DEFAULT NULL,
+   	`date_of_birth` date DEFAULT NULL,
+	`area` varchar(30) DEFAULT NULL,
+  	`caste` varchar(30) DEFAULT NULL,
+  	`disability` varchar(30) DEFAULT NULL,
+    `add1` varchar(30) DEFAULT NULL,
+  	`add2` varchar(30) DEFAULT NULL,
+  	`state` varchar(30) NOT NULL,
+  	`district` varchar(30) NOT NULL,
+  	`pincode` int NOT NULL,
+  	`type_of_ins` varchar(30) DEFAULT NULL,
+  	`stu_of_ken` varchar(30) DEFAULT NULL,
+  	`med_of_exam1` varchar(30) DEFAULT NULL,
+  	`med_of_exam2` varchar(30) DEFAULT NULL,
+  	`fedu` varchar(30) DEFAULT NULL,
+  	`focc` varchar(30) DEFAULT NULL,
+  	`medu` varchar(30) DEFAULT NULL,
+  	`mocc` varchar(30) DEFAULT NULL,
+  	`family_members` int NOT NULL,
+  	`brothers` int NOT NULL,
+  	`sisters` int NOT NULL,
+  	`level_in_family` varchar(30) DEFAULT NULL,
+  	`income` varchar(30) DEFAULT NULL,
+  	`email` varchar(100) NOT NULL,
+  	
+  	`contact_number` varchar(11) DEFAULT NULL,
+  	`aadhar` varchar(100) NOT NULL,
+  	`telephone` varchar(11) DEFAULT NULL,
+  	`exam_center` varchar(50) DEFAULT NULL,
+  	
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
@@ -105,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-02 21:24:14
+-- Dump completed on 2020-11-05 18:34:37
