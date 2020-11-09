@@ -74,6 +74,7 @@ session_start();
   		<div class="form-row">
   			<div class="form-group col-md-4">
   				<label for="OTP">OTP(sent over Email provided)</label>
+				  
   				<input type="text" class="form-control" id="OTP" name="otp" placeholder="OTP" required>
   			</div>
   		</div>
