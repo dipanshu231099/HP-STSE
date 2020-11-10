@@ -38,7 +38,7 @@ session_start();
 
     <div class="row">
        <div class="col-sm-12 login-form">
-        <form action="ApplicationSubmit.php" method="post">
+        <form action="applicationsubmit.php" method="post">
       <div class="col-sm-12">
         <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
           Personal Details
