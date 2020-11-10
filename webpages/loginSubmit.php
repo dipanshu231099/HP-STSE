@@ -21,7 +21,7 @@ if(isset($_POST['type'])){
         $table = "Admin";
     }
     else if($_POST['type']=='school'){
-        $table = "School";
+        $table = "Schools";
     }
     $query = "SELECT * FROM `$table` WHERE email=\"$email\" and password=\"$password\";";
     if (($result = $conn->query($query)) && (mysqli_num_rows($result)>0)) {
@@ -30,7 +30,14 @@ if(isset($_POST['type'])){
         $_SESSION['type'] = $type;
         $_SESSION['email']=$row['email'];
         $result -> free_result();
-        header("Location: dashboard.php");
+        if($type == 'student'){
+            header("Location: dashboard.php");
+            die();
+        }
+        else if($type=='school'){
+            header("Location: school-dash.php");
+            die();
+        }
     } else {
         $_SESSION['loginStatus']=-1;
         unset($_SESSION['email']);

@@ -3,6 +3,23 @@
 
 <?php
 session_start();
+
+$email = $_SESSION['register-email'];
+
+if(!isset($email)){
+  header("Location: register.php");
+  die();
+}
+
+$config = include('../config.php');
+// establishing connection
+$conn = new mysqli($config['host'],$config['username'],$config['password'],$config['dbname']);
+if ($conn->connect_errno) {
+    die("Failed to connect ot DB");
+}
+
+$sql = "SELECT name FROM Schools";
+
 ?>
 
 <head>
@@ -39,15 +56,19 @@ session_start();
   		</div>
   		<div class="form-row">
     		<div class="form-group col-md-6">
-      			<label for="inputSchool">School</label>
-  				<input list="availableSchools" class="form-control" id="inputSchool" name="school" placeholder="School" required autocomplete="off">
-  				<datalist id="availableSchools">
-  					<option>School A</option>
-  					<option>xyz School</option>
-  					<option>R School</option>
-  					<option>LASS</option>
-  					<option>Primary College</option>
-  				</datalist>
+      		<label for="inputSchool">School</label>
+  				<select class="form-control" name="inputSchool">
+  					<?php 
+              if ($result = $conn->query($sql)) {
+                  while($row = $result->fetch_assoc()){
+                    echo "<option>";
+                      echo $row['name'];
+                    echo "</option>";
+                  }
+                  $result->free_result();
+              }
+             ?>
+  				</select>
     		</div>
     		<div class="form-group col-md-2">
   				<label for="inputClass">Class</label>
@@ -63,7 +84,7 @@ session_start();
   		<div class="form-row">
   			<div class="form-group col-md-6">
 				<label for="inputPassword">Password</label>
-				<input type="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" id="inputPassword" name="password" placeholder="Password" required>
+				<input type="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$" id="inputPassword" name="password" placeholder="Password" required>
 				<small class="text-muted"> Password: Must contain at least a number, special character, upper and lower case letter and minimum length=8, maximum length=50 </small>
 			</div>
 			<div class="form-group col-md-6">
@@ -85,6 +106,7 @@ session_start();
 	</div>
 	</div>
 
+  <?php include 'footer.php';$conn->close(); ?>
 </body>
 
 	<!-- scripts for bootstrap -->
