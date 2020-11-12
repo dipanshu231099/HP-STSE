@@ -41,12 +41,7 @@ if ($conn->connect_errno) {
           <?php } 
         else { ?>
             <h2 class="text-center main-heading"> You are good to go to fill the application form now...</h2>
-        <?php } ?>
-        
-        <?php } ?>
-  <br>
-
-  <div class="container">
+            <div class="container">
     <div class="row">
       
     </div>
@@ -69,6 +64,12 @@ if ($conn->connect_errno) {
       </div>
     </div>
   </div>
+        <?php } ?>
+        
+        <?php } ?>
+  <br>
+
+
 
   <?php include 'footer.php'; ?>
 </body>
