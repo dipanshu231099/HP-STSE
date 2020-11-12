@@ -3,6 +3,12 @@
 
 <?php
 session_start();
+$config = include('../config.php');
+// establishing connection
+$conn = new mysqli($config['host'],$config['username'],$config['password'],$config['dbname']);
+if ($conn->connect_errno) {
+    die("Failed to connect ot DB");
+}
 ?>
 
 <head>

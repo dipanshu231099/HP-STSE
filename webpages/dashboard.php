@@ -3,6 +3,12 @@
 
 <?php
 session_start();
+$config = include('../config.php');
+// establishing connection
+$conn = new mysqli($config['host'],$config['username'],$config['password'],$config['dbname']);
+if ($conn->connect_errno) {
+    die("Failed to connect ot DB");
+}
 ?>
 
 <head>
@@ -23,11 +29,19 @@ session_start();
   </h1>
   <?php if(isset($_SESSION['loginStatus']) && ($_SESSION['loginStatus']==1)) { ?>
         <h1 class="text-center main-heading">Welcome <?php echo $_SESSION['email'];?></h1>
-        <h2 class="text-center main-heading"> You are good to go to fill the application form now...</h2>
-        <?php } ?>
-  <br>
 
-  <div class="container">
+        <?php
+          $query = "SELECT status FROM Students_Application_2020";
+          $result = $conn->query($query);
+          $result = $result->fetch_assoc();
+          $status = $result['status'];
+          if($status==1){ ?>
+            <h2 class="text-center main-heading"> You have submitted your application</h2>
+
+          <?php } 
+        else { ?>
+            <h2 class="text-center main-heading"> You are good to go to fill the application form now...</h2>
+            <div class="container">
     <div class="row">
       
     </div>
@@ -50,6 +64,12 @@ session_start();
       </div>
     </div>
   </div>
+        <?php } ?>
+        
+        <?php } ?>
+  <br>
+
+
 
   <?php include 'footer.php'; ?>
 </body>
