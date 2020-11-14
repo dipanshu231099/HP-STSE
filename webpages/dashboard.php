@@ -31,12 +31,15 @@ if ($conn->connect_errno) {
         <h1 class="text-center main-heading">Welcome <?php echo $_SESSION['email'];?></h1>
 
         <?php
-          $query = "SELECT status FROM Students_Application_2020";
+          $emailwa= $_SESSION['email'];
+          $query = "SELECT * FROM Students_Application_2020 where email='$emailwa';";
           $result = $conn->query($query);
           $result = $result->fetch_assoc();
           $status = $result['status'];
+          $naam = $result['applicantname'];
           if($status==1){ ?>
-            <h2 class="text-center main-heading"> You have submitted your application</h2>
+            <center><img src="green.png" alt="" style="width:150px;height:150px"; ></center>
+            <h3 class="text-center main-heading"> <?php echo "Dear $naam "?> your application is submitted. <br>Wait till your School Principal approves your application. For any query contact xxxx or you can email at xx@xx.xx"</h3>
 
           <?php } 
         else { ?>
