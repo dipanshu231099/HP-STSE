@@ -62,10 +62,10 @@ session_start();
 
             <div class="form-group col-md-2">
               <label for="gender">Gender</label>
-              <input list="bin" class="form-control" id="gender" placeholder="" name="gender" required>
-                <datalist id="bin">
-                  <option  value='Male'  >Male</option><option  value='Female'  >Female</option>
-                </datalist>
+                <select class="form-control" id="gender" name="gender" required>
+                  <option  value='Male'>Male</option><option  value='Female'>Female</option>
+
+                </select>
             </div>
 
             <div class="form-group col-md-4">
@@ -74,24 +74,21 @@ session_start();
             </div>
             <div class="form-group col-md-4">
               <label for="area">Area in which candidate resides</label>
-              <input list="bin" class="form-control" id="area" placeholder="" name="area" required>
-                <datalist id="bin">
+              <select class="form-control" id="area" name="area" required>
                   <option  value='Rural'  >Rural</option><option  value='Urban'  >Urban</option>
-                </datalist>
+                </select>
             </div>
             <div class="form-group col-md-4">
               <label for="caste">Caste Category of Candidate</label>
-              <input list="bin" class="form-control" id="caste" placeholder="" name="caste" required>
-                <datalist id="bin">
+              <select class="form-control" id="caste" name="caste" required>
                   <option value="EWS">EWS</option><option value="General">General</option><option value="OBC">OBC</option><option value="ST">ST</option><option value="SC">SC</option>
-                </datalist>
+                </select>
             </div>
             <div class="form-group col-md-4">
               <label for="disability">Disability Status</label>
-              <input list="bin" class="form-control" id="disability" placeholder="" name="disability" required>
-                <datalist id="bin">
+              <select class="form-control" id="disability" name="disability" required>
                   <option value="AID">AID</option><option value="BLV">BLV</option><option value="DH">DH</option><option value="LD">LD</option><option value="MD">MD</option><option value="NONE">NONE</option>
-                </datalist>
+                </select>
             </div>
             
             
@@ -102,28 +99,27 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="add1">Address 1</label>
-              <input type="text" class="form-control" id="add1" placeholder="" name="add1" required>
+              <input type="text" class="form-control" id="add1" placeholder="Address 1" name="add1" required>
             </div>
             <div class="form-group col-md-6">
               <label for="add2">Address 2</label>
-              <input type="text" class="form-control" id="add2" placeholder="" name="add2" required>
+              <input type="text" class="form-control" id="add2" placeholder="Address 2" name="add2">
             </div>
             
             <div class="form-group col-md-6">
               <label for="state">State</label>
-              <input list="statecategory" class="form-control validate[required, custom[onlyNumberSp], minSize[6]]inputbox" id="state" placeholder="" name="state" required>
-                <datalist id="statecategory">
+              <select class="form-control" id="state" name="state"  required>
                   <option value="HP">HP</option><option value="Other">Other</option>
-                </datalist>
+                </select>
             </div>
 
             <div class="form-group col-md-6">
               <label for="district">District</label>
-              <input type="text" class="form-control" id="district" placeholder="" name="district" required>
+              <input type="text" class="form-control" id="district" placeholder="District" name="district" required>
             </div>
             <div class="form-group col-md-6">
               <label for="pincode">PIN Code</label>
-              <input type="text" class="form-control" id="pincode" placeholder="" name="pincode" required>
+              <input type="text" class="form-control" id="pincode" placeholder="PIN code" name="pincode" required>
             </div>
             <div class="col-sm-12">
               <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
@@ -133,36 +129,29 @@ session_start();
 
             <div class="form-group col-md-6">
               <label for="typeofins">Type of the institution in which studying at Class X</label>
-              <input list="typeof" class="form-control" id="typeofins" placeholder="" name="typeofinst" required>
-                <datalist id="typeof">
+              <select class="form-control" id="typeofinst" name="typeofinst" required>
                   <option  value='GOVERNMENT'  >GOVERNMENT</option><option  value='LOCAL BODY'  >LOCAL BODY</option><option  value='PRIVATE AIDED'  >PRIVATE AIDED</option><option  value='PRIVATE UNAIDED'  >PRIVATE UNAIDED</option>''
-                </datalist>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Are you Student of Kendriya Vidyalaya / Navodaya Vidyalaya? </label>
-              <input list="bin" class="form-control" id="kennavo" placeholder="" name="kennavo" required>
-                <datalist id="bin">
-                  <option  value='Yes'  >Yes</option><option  value='No'  >No</option>
-                </datalist>
+                  <select class="form-control" id="kennavo" name="kennavo" required>
+                  	<option  value='Yes'  >Yes</option><option  value='No'  >No</option>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Medium of Examinations at State Level </label>
-              <input list="lang" class="form-control" id="meda" placeholder="" name="meda" required>
-                <datalist id="lang">
-                  <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
-                </datalist>
+              <select class="form-control" id="meda" name="meda" required>    <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Medium of Examinations at NCERT Level </label>
-              <input list="lang" class="form-control" id="medb" placeholder="" name="medb" required>
-                <datalist id="lang">
-                  <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
-                </datalist>
+              <select class="form-control" id="medb" name="medb" required>    <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Father's Education </label>
-              <input list="edu" class="form-control" id="fedu" placeholder="" name="fedu" required>
-                <datalist id="edu">
+              <select class="form-control" id="fedu" name="fedu" required>
                   <option  value='DOCTORAL'  >DOCTORAL</option>
                     <option  value='GRADUATION'  >GRADUATION</option>
                     <option  value='NO FORMAL EDUCATION'  >NO FORMAL EDUCATION</option>
@@ -172,13 +161,11 @@ session_start();
                     <option  value='SENIOR SECONDARY'  >SENIOR SECONDARY</option>
                     <option  value='UP TO PRIMARY'  >UP TO PRIMARY</option>
                     <option  value='UPPER PRIMARY'  >UPPER PRIMARY</option>
-                </datalist>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Father's Occupation </label>
-              <input list="occ" class="form-control" id="focc" placeholder="" name="focc" required>
-                <datalist id="occ">
-                  <option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
+              <select class="form-control" id="foccu" name="foccu" required>    <option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
                     <option  value='BUSINESS'  >BUSINESS</option>
                     <option  value='CLERICAL'  >CLERICAL</option>
                     <option  value='EXECUTIVE AND MANAGERIAL'  >EXECUTIVE AND MANAGERIAL</option>
@@ -186,13 +173,11 @@ session_start();
                     <option  value='OPERATORS AND LABOURERS'  >OPERATORS AND LABOURERS</option>
                     <option  value='PRODUCTION AND TRANSPORT'  >PRODUCTION AND TRANSPORT</option>
                     <option  value='PROFESSSIONAL'  >PROFESSSIONAL</option>
-                </datalist>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Mother's Education </label>
-              <input list="edu" class="form-control" id="medu" placeholder="" name="medu" required>
-                <datalist id="edu">
-                  <option  value='DOCTORAL'  >DOCTORAL</option>
+              <select class="form-control" id="medu" name="medu" required><option  value='DOCTORAL'  >DOCTORAL</option>
                     <option  value='GRADUATION'  >GRADUATION</option>
                     <option  value='NO FORMAL EDUCATION'  >NO FORMAL EDUCATION</option>
                     <option  value='POST GRADUATION'  >POST GRADUATION</option>
@@ -201,13 +186,12 @@ session_start();
                     <option  value='SENIOR SECONDARY'  >SENIOR SECONDARY</option>
                     <option  value='UP TO PRIMARY'  >UP TO PRIMARY</option>
                     <option  value='UPPER PRIMARY'  >UPPER PRIMARY</option>
-                </datalist>
+                </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Mother's Occupation </label>
-              <input list="occ" class="form-control" id="mocc" placeholder="" name="mocc" required>
-                <datalist id="occ">
-                  <option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
+              <select class="form-control" id="mocc" name="mocc" required>
+              	<option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
                     <option  value='BUSINESS'  >BUSINESS</option>
                     <option  value='CLERICAL'  >CLERICAL</option>
                     <option  value='EXECUTIVE AND MANAGERIAL'  >EXECUTIVE AND MANAGERIAL</option>
@@ -215,7 +199,7 @@ session_start();
                     <option  value='OPERATORS AND LABOURERS'  >OPERATORS AND LABOURERS</option>
                     <option  value='PRODUCTION AND TRANSPORT'  >PRODUCTION AND TRANSPORT</option>
                     <option  value='PROFESSSIONAL'  >PROFESSSIONAL</option>
-                </datalist>
+                </select>
             </div>
             
             <div class="form-group col-md-6">
@@ -236,27 +220,19 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Parental Annual Income </label>
-              <input list="p_income" class="form-control" id="pincome" placeholder="" name="pincome" required>
-                <datalist id="p_income">
-                  <option  value='2,00,001 to 3,00,000'  >2,00,001 to 3,00,000</option>
+              <select class="form-control" id="pincome" name="pincome" required> <option  value='2,00,001 to 3,00,000'  >2,00,001 to 3,00,000</option>
                   <option  value='3,00,001 to 5,00,000'  >3,00,001 to 5,00,000</option>
                   <option  value='5,00,001 to 10,00,000'  >5,00,001 to 10,00,000</option>
                   <option  value='More than 10,00,000'  >More than 10,00,000</option>
                   <option  value='Upto 2,00,000'  >Upto 2,00,000</option>
-                </datalist>
+                </select>
             </div>
-            <div class="form-group col-md-1">
-              <label for="STD">STD</label>
-              <input type="text" class="form-control" id="STD" placeholder="" name="STD" required>
-            </div>
-             <div class="form-group col-md-5">
-              <label for="Telephone">Telephone</label>
-              <input type="text" class="form-control" id="Telephone" placeholder="" name="Telephone" required>
-            </div>
+           
             <div class="form-group col-md-6">
               <label for="email">Email Address</label>
-              <input type="email" class="form-control" id="email" placeholder="" name="email" required>
+              <input type="email" class="form-control" id="email" name="email" placeholder=<?php echo $_SESSION['email'] ?> disabled>
             </div>
+
              <div class="form-group col-md-6">
               <label for="Mobile">Mobile Number</label>
               <input type="text" class="form-control" id="Mobile" placeholder="" name="Mobile" required>
