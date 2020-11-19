@@ -11,6 +11,11 @@ if ($conn->connect_errno) {
     die("Failed to connect ot DB");
 }
 
+$status_obj[0] = 'Forms under revision : ';
+$status_obj[1] = 'Forms pending school approval: ';
+$status_obj[2] = 'Forms pending admin approval: ';
+$status_obj[3] = 'Forms accepted: ';
+
 $status = $_GET['status'];
 if(!isset($status)){
 	header("Location: school-dash.php?status=1");
@@ -34,7 +39,7 @@ if($result=$conn->query($sql_tmp)){
 }
 
 
-$sql = "SELECT T1.email AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fName,T1.lastname AS lName FROM Students_$year AS T1 INNER JOIN Students_Application_$year AS T2 ON T1.school=$school AND T1.email=T2.email AND T2.status=$status";
+$sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fName,T1.lastname AS lName FROM Students_$year AS T1 INNER JOIN Students_Application_$year AS T2 ON T1.school=$school AND T1.email=T2.email AND T2.status=$status";
 
  ?>
 
@@ -64,18 +69,27 @@ $sql = "SELECT T1.email AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fNa
 		</div>
 	</div>
 
+	<div class="text-center custom">
+		<?php
+			echo $status_obj[$status];
+			if ($result = $conn->query($sql)) {
+				echo $result->num_rows;
+			}
+		?>
+	</div>
+
 	<table class="table table-striped">
 	  <thead class="thead-dark">
 	    <tr>
 	      <th>NTSE ID(Reg No.)</th>
 	      <th>School ID(Reg No.)</th>
 	      <th>Name</th>
+	      <th>Form</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	    <?php 
-	    	if ($result = $conn->query($sql)) {
-			    // echo $result->num_rows;
+	    	if ($result) {
 			    while($row = $result->fetch_assoc()){
 			    	echo "<tr>";
 			    		echo "<td>";
@@ -86,6 +100,9 @@ $sql = "SELECT T1.email AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fNa
 						echo "</td>";
 						echo "<td>";
 							echo $row['fName'].' '.$row['lName'];
+			    		echo "</td>";
+			    		echo "<td>";
+			    			echo "<a href='school-approval.php?ntseid=".$row['ntseID']."'>link</a>";
 			    		echo "</td>";
 			    	echo "</tr>";
 			    }
