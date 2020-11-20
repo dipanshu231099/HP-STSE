@@ -306,7 +306,7 @@ $status = $result['status'];
         echo" <form class='col-sm-12' action='school-reject.php?ntseid=".$ntseid."' method='POST'>";
           echo "<div class='form-group col-md-12'>";
             echo "<label for='feedback'>Feedback</label>";
-            echo "<textarea class='form-control' id='feedback' rows='3' placeholder='Reject feedback'></textarea>";
+            echo "<textarea class='form-control' id='feedback' rows='3' placeholder='Reject feedback' name='feedback'></textarea>";
           echo "</div>";
           echo "<div class='text-center'>";
             echo "<button type='submit' class='btn btn-danger'>Review </button>";
