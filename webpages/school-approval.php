@@ -36,6 +36,9 @@ if($result=$conn->query($sql_tmp)){
 $sql = "SELECT * FROM Students_2020 AS T1 INNER JOIN Students_Application_2020 AS T2 ON T1.school=$school AND T1.email=T2.email WHERE T1.ntseid=$ntseid";
 
 $result = $conn->query($sql);
+if(!$result){
+  die($sql);
+}
 $result = $result->fetch_assoc();
 $status = $result['status'];
  ?>
@@ -303,7 +306,7 @@ $status = $result['status'];
         echo" <form class='col-sm-12' action='school-reject.php?ntseid=".$ntseid."' method='POST'>";
           echo "<div class='form-group col-md-12'>";
             echo "<label for='feedback'>Feedback</label>";
-            echo "<textarea class='form-control' id='feedback' rows='3' placeholder='Reject feedback'></textarea>";
+            echo "<textarea class='form-control' id='feedback' rows='3' placeholder='Reject feedback' name='feedback'></textarea>";
           echo "</div>";
           echo "<div class='text-center'>";
             echo "<button type='submit' class='btn btn-danger'>Review </button>";

@@ -19,14 +19,15 @@
 			$mail->SMTPSecure = 'tls';							 
 			$mail->Port	 = 587; 
 
-			$mail->setFrom('mandibtech@gmail.com', 'HP STSE');		 
+			$mail->setFrom('mandibtech@gmail.com', 'HP-STSE');		 
 			$mail->addAddress($student_email); 
 			 
 			
 			$mail->isHTML(true);								 
 			$mail->Subject = 'OTP Code for registration'; 
-			$mail->Body = "Your requested otp for registration is <b>"+$otp+"</b><br>Thank you for using HP STSE web registration system"; 
-			$mail->AltBody = "Your requested otp for registration is "+$otp; 
+			$content = "Your one time password for your student sign-up is $otp";
+			$mail->Body = $content; 
+			$mail->AltBody = 'Use proper mail service to view the otp'; 
 			$mail->send(); 
 			echo "Mail has been sent successfully!"; 
 		} catch (Exception $e) { 

@@ -32,7 +32,7 @@ function mailto($student_email , $message){
 		$mail->isHTML(true);								 
 		$mail->Subject = 'HP_STSE'; 
 		$mail->Body = $message; 
-		$mail->AltBody = 'Body in plain text for non-HTML mail clients'; 
+		$mail->AltBody = 'Use a HTML mail client to properly open this mail'; 
 		$mail->send(); 
 		echo "Mail has been sent successfully!"; 
 	} catch (Exception $e) { 
@@ -85,7 +85,7 @@ $exam_center = $_POST['exam_center'];
 		echo "Error: ".$sql."<br>".$conn->error;
 	}
 	else{
-		$message = "Dear $applicantname you application is submitted. Wait till your school principal approves your application. For any query contact xxxx or you can email at xx@xx.xx";
+		$message = "Dear $applicantname you application is submitted. Wait till your school principal approves your application. Keep checking your mail" ;
 		$no_use_variable = mailto($email , $message);
 		header("Location: dashboard.php");
 	}
