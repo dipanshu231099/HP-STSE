@@ -21,19 +21,19 @@ $year = date("Y");
 $type = $_SESSION['type'];
 $email = $_SESSION['email'];
 
-if($type != 'school'){
+if($type != 'school' && $type != 'admin'){
   header("Location: index.php");
     die();
 }
 
-$sql_tmp = "SELECT id FROM Schools WHERE email='$email'";
-if($result=$conn->query($sql_tmp)){
-  while($row=$result->fetch_assoc()){
-    $school = $row['id'];
-  }
-}
+// $sql_tmp = "SELECT id FROM Schools WHERE email='$email'";
+// if($result=$conn->query($sql_tmp)){
+//   while($row=$result->fetch_assoc()){
+//     $school = $row['id'];
+//   }
+// }
 
-$sql = "SELECT * FROM Students_2020 AS T1 INNER JOIN Students_Application_2020 AS T2 ON T1.school=$school AND T1.email=T2.email WHERE T1.ntseid=$ntseid";
+$sql = "SELECT * FROM Students_2020 AS T1 INNER JOIN Students_Application_2020 AS T2 ON T1.email=T2.email WHERE T1.ntseid=$ntseid";
 
 $result = $conn->query($sql);
 $result = $result->fetch_assoc();
@@ -62,7 +62,8 @@ $status = $result['status'];
     <div class="row">
        <div class="col-sm-12 login-form">
 
-      <?php echo "<form action='school-accept.php?ntseid=".$ntseid."' method='post'>" ?>
+       <?php echo "<form action='school-accept.php?ntseid=".$ntseid."' method='post'>" ?>
+       
         <div class="col-sm-12">
           <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
           Personal Details
@@ -274,7 +275,6 @@ $status = $result['status'];
             <?php echo $result['aadhar'] ?>
           </div>
         </div>
-
       
         <div class="col-sm-12">
           <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
@@ -316,6 +316,7 @@ $status = $result['status'];
         echo "</div>";
       }
       ?>
+
       <br>
       <br>
       <br>
