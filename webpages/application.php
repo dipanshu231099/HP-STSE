@@ -49,15 +49,15 @@ session_start();
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="appname">Applicant's Name</label>
-              <input type="text" class="form-control" id="appname" placeholder="Applicant's Name" name="appname" >
+              <input type="text" class="form-control" id="appname" placeholder="Applicant's Name" name="appname" required >
             </div>
             <div class="form-group col-md-6">
               <label for="fname">Father's Name</label>
-              <input type="text" class="form-control" id="fname" placeholder="Father's Name" name="fname" >
+              <input type="text" class="form-control" id="fname" placeholder="Father's Name" name="fname" required>
             </div>
             <div class="form-group col-md-6">
               <label for="mname">Mother's Name</label>
-              <input type="text" class="form-control" id="mname" placeholder="Mother's Name" name="mname" >
+              <input type="text" class="form-control" id="mname" placeholder="Mother's Name" name="mname" required>
             </div>
 
             <div class="form-group col-md-2">
@@ -70,7 +70,7 @@ session_start();
 
             <div class="form-group col-md-4">
               <label for="mname">Date of Birth</label>
-              <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" >
+              <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" required>
             </div>
             <div class="form-group col-md-4">
               <label for="area">Area in which candidate resides</label>
@@ -99,11 +99,11 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="add1">Address 1</label>
-              <input type="text" class="form-control" id="add1" placeholder="Address 1" name="add1" >
+              <input type="text" class="form-control" id="add1" placeholder="Address 1" name="add1" required>
             </div>
             <div class="form-group col-md-6">
               <label for="add2">Address 2</label>
-              <input type="text" class="form-control" id="add2" placeholder="Address 2" name="add2">
+              <input type="text" class="form-control" id="add2" placeholder="Address 2" name="add2" required>
             </div>
             
             <div class="form-group col-md-6">
@@ -115,11 +115,11 @@ session_start();
 
             <div class="form-group col-md-6">
               <label for="district">District</label>
-              <input type="text" class="form-control" id="district" placeholder="District" name="district" >
+              <input type="text" class="form-control" id="district" placeholder="District" name="district" required>
             </div>
             <div class="form-group col-md-6">
               <label for="pincode">PIN Code</label>
-              <input type="text" class="form-control" id="pincode" placeholder="PIN code" name="pincode" >
+              <input type="text" class="form-control" id="pincode" placeholder="PIN code" name="pincode" required>
             </div>
             <div class="col-sm-12">
               <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
@@ -204,19 +204,19 @@ session_start();
             
             <div class="form-group col-md-6">
               <label for="family">Number of family members in the house</label>
-              <input type="text" class="form-control" id="family" placeholder="" name="family" >
+              <input type="text" class="form-control" id="family" placeholder="" name="family" required>
             </div>
             <div class="form-group col-md-3">
               <label for="brothers">Number of brothers</label>
-              <input type="text" class="form-control" id="brothers" placeholder="" name="brothers" >
+              <input type="text" class="form-control" id="brothers" placeholder="" name="brothers" required>
             </div>
             <div class="form-group col-md-3">
               <label for="sisters">Number of sisters</label>
-              <input type="text" class="form-control" id="sisters" placeholder="" name="sisters" >
+              <input type="text" class="form-control" id="sisters" placeholder="" name="sisters" required>
             </div>
             <div class="form-group col-md-6">
               <label for="brosis">At what no. is the candidate among his/her brothers and sisters</label>
-              <input type="text" class="form-control" id="brosis" placeholder="" name="brosis" >
+              <input type="text" class="form-control" id="brosis" placeholder="" name="brosis" required>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Parental Annual Income </label>
@@ -235,11 +235,11 @@ session_start();
 
              <div class="form-group col-md-6">
               <label for="Mobile">Mobile Number</label>
-              <input type="text" class="form-control" id="Mobile" placeholder="" name="Mobile" >
+              <input type="text" class="form-control" id="Mobile" placeholder="" name="Mobile" required>
             </div>
             <div class="form-group col-md-6">
               <label for="adhar">Adhar Card Number</label>
-              <input type="text" class="form-control" id="adhar" placeholder="" name="adhar" >
+              <input type="text" class="form-control" id="adhar" placeholder="" name="adhar" required>
             </div>
 
             
