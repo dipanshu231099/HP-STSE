@@ -17,7 +17,7 @@
         var width = doc.internal.pageSize.width;
         var height = doc.internal.pageSize.height;
         doc.addImage(img,'JPEG', 0, 2, width, height);
-        doc.save('test.pdf');
+        doc.save('admit_card.pdf');
         }
 
         });

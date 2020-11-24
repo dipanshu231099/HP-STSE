@@ -25,7 +25,7 @@ function mailto($student_email , $message){
 		$mail->SMTPSecure = 'tls';							 
 		$mail->Port	 = 587; 
 
-		$mail->setFrom('mandibtech@gmail.com', 'Name');		 
+		$mail->setFrom('mandibtech@gmail.com', 'HP STSE');		 
 		$mail->addAddress($student_email); 
 		 
 		

@@ -27,7 +27,7 @@
             $mail->SMTPSecure = 'tls';							 
             $mail->Port	 = 587; 
     
-            $mail->setFrom('mandibtech@gmail.com', 'Name');		 
+            $mail->setFrom('mandibtech@gmail.com', 'HP STSE');		 
             $query = "select email from Students_Application_2020 where status=2;";
             $result = $conn->query($query);
 
