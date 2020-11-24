@@ -1,13 +1,52 @@
 <?php
     session_start();
-
     $config = include('../config.php');
     // establishing connection
     $conn = new mysqli($config['host'],$config['username'],$config['password'],$config['dbname']);
     if ($conn->connect_errno) {
         die("Failed to connect ot DB");
     }
-    // echo "hello!";
+
+    use PHPMailer\PHPMailer\PHPMailer; 
+    use PHPMailer\PHPMailer\Exception;
+    require 'vendor/autoload.php';
+
+    function mailto($message){
+	
+    $config = include('../config.php');
+    $conn = new mysqli($config['host'],$config['username'],$config['password'],$config['dbname']);
+    $mail = new PHPMailer(true); 
+    
+        try { 
+            $mail->SMTPDebug = 0;									 
+            $mail->isSMTP();											 
+            $mail->Host	 = 'smtp.gmail.com;';					 
+            $mail->SMTPAuth = true;							 
+            $mail->Username = 'mandibtech@gmail.com';				 
+            $mail->Password = 'mandi_hp_in';						 
+            $mail->SMTPSecure = 'tls';							 
+            $mail->Port	 = 587; 
+    
+            $mail->setFrom('mandibtech@gmail.com', 'Name');		 
+            $query = "select email from Students_Application_2020 where status=2;";
+            $result = $conn->query($query);
+            
+            while($row=$result->fetch_assoc()){
+                $mail->addAddress($row['email']); 
+            }
+
+            $mail->isHTML(true);								 
+            $mail->Subject = 'HP_STSE'; 
+            $mail->Body = $message; 
+            $mail->AltBody = 'Use a HTML mail client to properly open this mail'; 
+            $mail->send(); 
+            echo "Mail has been sent successfully!"; 
+        } catch (Exception $e) { 
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; 
+        }
+        return 1;
+    }
+
     //run the store proc
     $query = "CALL Allot_pref_centers()";
     if ($result = $conn->query($query)) {
