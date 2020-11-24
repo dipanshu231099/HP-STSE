@@ -21,4 +21,6 @@
     if ($result = $conn->query($query)) {
         echo $result->num_rows;
     }
+    header("Location: admin-dash.php");
+    die();
 ?>
