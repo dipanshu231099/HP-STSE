@@ -30,7 +30,7 @@
             $mail->setFrom('mandibtech@gmail.com', 'Name');		 
             $query = "select email from Students_Application_2020 where status=2;";
             $result = $conn->query($query);
-            
+
             while($row=$result->fetch_assoc()){
                 $mail->addAddress($row['email']); 
             }
@@ -46,6 +46,9 @@
         }
         return 1;
     }
+
+    //mailing the students
+    $void_var = mailto("Your admit card has been generated. Kindly download it from the HP-STSE Portal.");
 
     //run the store proc
     $query = "CALL Allot_pref_centers()";
