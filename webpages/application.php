@@ -38,7 +38,7 @@ session_start();
 
     <div class="row">
        <div class="col-sm-12 login-form">
-        <form action="applicationsubmit.php" method="post">
+        <form action="applicationsubmit.php" method="post" enctype="multipart/form-data">
       <div class="col-sm-12">
         <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
           Personal Details
@@ -49,20 +49,20 @@ session_start();
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="appname">Applicant's Name</label>
-              <input type="text" class="form-control" id="appname" placeholder="Applicant's Name" name="appname" required>
+              <input type="text" class="form-control" id="appname" placeholder="Applicant's Name" name="appname" >
             </div>
             <div class="form-group col-md-6">
               <label for="fname">Father's Name</label>
-              <input type="text" class="form-control" id="fname" placeholder="Father's Name" name="fname" required>
+              <input type="text" class="form-control" id="fname" placeholder="Father's Name" name="fname" >
             </div>
             <div class="form-group col-md-6">
               <label for="mname">Mother's Name</label>
-              <input type="text" class="form-control" id="mname" placeholder="Mother's Name" name="mname" required>
+              <input type="text" class="form-control" id="mname" placeholder="Mother's Name" name="mname" >
             </div>
 
             <div class="form-group col-md-2">
               <label for="gender">Gender</label>
-                <select class="form-control" id="gender" name="gender" required>
+                <select class="form-control" id="gender" name="gender" >
                   <option  value='Male'>Male</option><option  value='Female'>Female</option>
 
                 </select>
@@ -70,23 +70,23 @@ session_start();
 
             <div class="form-group col-md-4">
               <label for="mname">Date of Birth</label>
-              <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" required>
+              <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" >
             </div>
             <div class="form-group col-md-4">
               <label for="area">Area in which candidate resides</label>
-              <select class="form-control" id="area" name="area" required>
+              <select class="form-control" id="area" name="area" >
                   <option  value='Rural'  >Rural</option><option  value='Urban'  >Urban</option>
                 </select>
             </div>
             <div class="form-group col-md-4">
               <label for="caste">Caste Category of Candidate</label>
-              <select class="form-control" id="caste" name="caste" required>
+              <select class="form-control" id="caste" name="caste" >
                   <option value="EWS">EWS</option><option value="General">General</option><option value="OBC">OBC</option><option value="ST">ST</option><option value="SC">SC</option>
                 </select>
             </div>
             <div class="form-group col-md-4">
               <label for="disability">Disability Status</label>
-              <select class="form-control" id="disability" name="disability" required>
+              <select class="form-control" id="disability" name="disability" >
                   <option value="AID">AID</option><option value="BLV">BLV</option><option value="DH">DH</option><option value="LD">LD</option><option value="MD">MD</option><option value="NONE">NONE</option>
                 </select>
             </div>
@@ -99,7 +99,7 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="add1">Address 1</label>
-              <input type="text" class="form-control" id="add1" placeholder="Address 1" name="add1" required>
+              <input type="text" class="form-control" id="add1" placeholder="Address 1" name="add1" >
             </div>
             <div class="form-group col-md-6">
               <label for="add2">Address 2</label>
@@ -108,18 +108,18 @@ session_start();
             
             <div class="form-group col-md-6">
               <label for="state">State</label>
-              <select class="form-control" id="state" name="state"  required>
+              <select class="form-control" id="state" name="state"  >
                   <option value="HP">HP</option><option value="Other">Other</option>
                 </select>
             </div>
 
             <div class="form-group col-md-6">
               <label for="district">District</label>
-              <input type="text" class="form-control" id="district" placeholder="District" name="district" required>
+              <input type="text" class="form-control" id="district" placeholder="District" name="district" >
             </div>
             <div class="form-group col-md-6">
               <label for="pincode">PIN Code</label>
-              <input type="text" class="form-control" id="pincode" placeholder="PIN code" name="pincode" required>
+              <input type="text" class="form-control" id="pincode" placeholder="PIN code" name="pincode" >
             </div>
             <div class="col-sm-12">
               <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
@@ -129,29 +129,29 @@ session_start();
 
             <div class="form-group col-md-6">
               <label for="typeofins">Type of the institution in which studying at Class X</label>
-              <select class="form-control" id="typeofinst" name="typeofinst" required>
+              <select class="form-control" id="typeofinst" name="typeofinst" >
                   <option  value='GOVERNMENT'  >GOVERNMENT</option><option  value='LOCAL BODY'  >LOCAL BODY</option><option  value='PRIVATE AIDED'  >PRIVATE AIDED</option><option  value='PRIVATE UNAIDED'  >PRIVATE UNAIDED</option>''
                 </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Are you Student of Kendriya Vidyalaya / Navodaya Vidyalaya? </label>
-                  <select class="form-control" id="kennavo" name="kennavo" required>
+                  <select class="form-control" id="kennavo" name="kennavo" >
                   	<option  value='Yes'  >Yes</option><option  value='No'  >No</option>
                 </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Medium of Examinations at State Level </label>
-              <select class="form-control" id="meda" name="meda" required>    <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
+              <select class="form-control" id="meda" name="meda" >    <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
                 </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Medium of Examinations at NCERT Level </label>
-              <select class="form-control" id="medb" name="medb" required>    <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
+              <select class="form-control" id="medb" name="medb" >    <option  value='English'  >English</option><option  value='Hindi'  >Hindi</option>
                 </select>
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Father's Education </label>
-              <select class="form-control" id="fedu" name="fedu" required>
+              <select class="form-control" id="fedu" name="fedu" >
                   <option  value='DOCTORAL'  >DOCTORAL</option>
                     <option  value='GRADUATION'  >GRADUATION</option>
                     <option  value='NO FORMAL EDUCATION'  >NO FORMAL EDUCATION</option>
@@ -165,7 +165,7 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Father's Occupation </label>
-              <select class="form-control" id="foccu" name="foccu" required>    <option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
+              <select class="form-control" id="foccu" name="foccu" >    <option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
                     <option  value='BUSINESS'  >BUSINESS</option>
                     <option  value='CLERICAL'  >CLERICAL</option>
                     <option  value='EXECUTIVE AND MANAGERIAL'  >EXECUTIVE AND MANAGERIAL</option>
@@ -177,7 +177,7 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Mother's Education </label>
-              <select class="form-control" id="medu" name="medu" required><option  value='DOCTORAL'  >DOCTORAL</option>
+              <select class="form-control" id="medu" name="medu" ><option  value='DOCTORAL'  >DOCTORAL</option>
                     <option  value='GRADUATION'  >GRADUATION</option>
                     <option  value='NO FORMAL EDUCATION'  >NO FORMAL EDUCATION</option>
                     <option  value='POST GRADUATION'  >POST GRADUATION</option>
@@ -190,7 +190,7 @@ session_start();
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Mother's Occupation </label>
-              <select class="form-control" id="mocc" name="mocc" required>
+              <select class="form-control" id="mocc" name="mocc" >
               	<option  value='AGRICULTURE FISHERY'  >AGRICULTURE, FISHERY</option>
                     <option  value='BUSINESS'  >BUSINESS</option>
                     <option  value='CLERICAL'  >CLERICAL</option>
@@ -204,23 +204,23 @@ session_start();
             
             <div class="form-group col-md-6">
               <label for="family">Number of family members in the house</label>
-              <input type="text" class="form-control" id="family" placeholder="" name="family" required>
+              <input type="text" class="form-control" id="family" placeholder="" name="family" >
             </div>
             <div class="form-group col-md-3">
               <label for="brothers">Number of brothers</label>
-              <input type="text" class="form-control" id="brothers" placeholder="" name="brothers" required>
+              <input type="text" class="form-control" id="brothers" placeholder="" name="brothers" >
             </div>
             <div class="form-group col-md-3">
               <label for="sisters">Number of sisters</label>
-              <input type="text" class="form-control" id="sisters" placeholder="" name="sisters" required>
+              <input type="text" class="form-control" id="sisters" placeholder="" name="sisters" >
             </div>
             <div class="form-group col-md-6">
               <label for="brosis">At what no. is the candidate among his/her brothers and sisters</label>
-              <input type="text" class="form-control" id="brosis" placeholder="" name="brosis" required>
+              <input type="text" class="form-control" id="brosis" placeholder="" name="brosis" >
             </div>
             <div class="form-group col-md-6">
               <label for="typeofins">Parental Annual Income </label>
-              <select class="form-control" id="pincome" name="pincome" required> <option  value='2,00,001 to 3,00,000'  >2,00,001 to 3,00,000</option>
+              <select class="form-control" id="pincome" name="pincome" > <option  value='2,00,001 to 3,00,000'  >2,00,001 to 3,00,000</option>
                   <option  value='3,00,001 to 5,00,000'  >3,00,001 to 5,00,000</option>
                   <option  value='5,00,001 to 10,00,000'  >5,00,001 to 10,00,000</option>
                   <option  value='More than 10,00,000'  >More than 10,00,000</option>
@@ -235,23 +235,15 @@ session_start();
 
              <div class="form-group col-md-6">
               <label for="Mobile">Mobile Number</label>
-              <input type="text" class="form-control" id="Mobile" placeholder="" name="Mobile" required>
+              <input type="text" class="form-control" id="Mobile" placeholder="" name="Mobile" >
             </div>
             <div class="form-group col-md-6">
               <label for="adhar">Adhar Card Number</label>
-              <input type="text" class="form-control" id="adhar" placeholder="" name="adhar" required>
+              <input type="text" class="form-control" id="adhar" placeholder="" name="adhar" >
             </div>
 
-            <div class="col-sm-12">
-              <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
-                Upload Photo (Upload Recent colored photo, Photo Size Maximum 200 px X 200 px (Upto 20 Kb) and Photo file format should be JPG only)
-              </p>
-            </div>
-            <div class="form-group col-md-6">
-                  <input type="file"  name="fileToUpload" id="fileToUpload">
-                  <input type="submit" class="btn btn-dark" value="Upload Image" name="submit">
+            
 
-            </div>
             <div class="col-sm-12">
               <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
                 Select Examination Center
@@ -260,7 +252,7 @@ session_start();
             <div class="form-group col-md-12">
               <p class="alert-warning alert" role="alert">Important Note : Please indicate your preferred examination centres from the given list. While every effort will be made to allot you a centre according to your preference, it may not be possible to do so due to logistical reasons.</p>
               <label for="exam_center">Exam Center</label>
-              <select class="form-control" id="exam_center" name="exam_center" required>
+              <select class="form-control" id="exam_center" name="exam_center" >
                   <option  value='1001'  >GSSS(Boys)  NAHAN Dist. Sirmaur</option>
                   <option value='1002' >GSSS(Boys)  RAJGARH Dist. Sirmaur</option>
                   <option  value='1003'  >GSSS(Boys)  PAONTA SAHIB Dist. Sirmaur</option>
@@ -341,9 +333,18 @@ session_start();
               <input type="text" class="form-control" id="type" placeholder="type" name="type" value="<?php echo $type; ?>">
             </div>
           </div>
-          <div class="form-check col-md-12">
-            <button type="submit" class="btn btn-dark" style="width: 100%;">Submit Application Form</button>
-          </div>
+          <div class="col-sm-12">
+              <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
+                Upload Photo (Upload Recent colored photo, Photo Size Maximum 200 px X 200 px (Upto 20 Kb) and Photo file format should be JPG only)
+              </p>
+            </div>
+            <form action="applicationsubmit.php" method="post">
+              Select image :
+                        <input type="file" name="file" required><br><br>
+                  <input type="submit" value="Submit" class="btn btn-dark" name="Submit1" style="width: 100%;">
+
+            </form>
+          
         </form>
 
       </div>

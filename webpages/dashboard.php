@@ -41,11 +41,30 @@ if ($conn->connect_errno) {
             <center><img src="green.png" alt="" style="width:150px;height:150px"; ></center>
             <h3 class="text-center main-heading"> <?php echo "Dear $naam "?> your application is submitted. <br>Wait till your School Principal approves your application. For any query contact xxxx or you can email at xx@xx.xx"</h3>
 
-          <?php }
-          else if ($status == 3)
-          { 
+          <?php } 
 
-          } 
+        else if ($status==0) { ?>
+            <h2 class="text-center main-heading"> Your Application from was rejected. Please fill it again...</h2>
+            <div class="container">
+          <div class="row">
+          </div>
+    <div class="row">
+       <div class="col-sm-12 login-form">
+        <form action="application.php" method="post">
+      
+            <div class="form-group d-none">
+              
+          </div>
+          <div class="form-check col-md-12">
+            <button type="submit" class="btn btn-dark" style="width: 100%;">Fill Application Form</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+        <?php } ?>
+<?php } 
         else { ?>
             <h2 class="text-center main-heading"> You are good to go to fill the application form now...</h2>
             <div class="container">
@@ -73,7 +92,7 @@ if ($conn->connect_errno) {
   </div>
         <?php } ?>
         
-        <?php } ?>
+
   <br>
 
 
@@ -84,5 +103,4 @@ if ($conn->connect_errno) {
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 </html>

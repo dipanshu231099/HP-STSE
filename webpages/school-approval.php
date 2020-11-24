@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
   <style>
   .html2canvas-container { width: 5000px !important; height: 5000px !important; }
@@ -32,12 +33,14 @@ if($type != 'school' && $type != 'admin'){
     die();
 }
 
+
 $sql = "SELECT * FROM Students_2020 AS T1 INNER JOIN Students_Application_2020 AS T2 ON T1.email=T2.email WHERE T1.ntseid=$ntseid";
 
 $result = $conn->query($sql);
 if(!$result){
   die($sql);
 }
+  
 $result = $result->fetch_assoc();
 $status = $result['status'];
  ?>
@@ -54,6 +57,7 @@ $status = $result['status'];
 <body>
   <?php include 'header.php'; ?>
 
+  <div class="container">
   <div class="container" id="AdmitCard">
     <div class="col-sm-12">
       <p class="alert alert-primary text-center customTop" role="alert">
@@ -72,7 +76,9 @@ $status = $result['status'];
           </p>
         </div>
 
-
+        <?php $re = $result['email']; ?>
+        <img src="uploads/<?php echo $re; ?>.jpg" style="width:100px;height:150px;margin:0px 50px 10px 10px">
+      
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="appname">Applicant's Name</label>
@@ -334,6 +340,7 @@ $status = $result['status'];
   <?php include 'footer.php'; $conn->close(); ?>
 </body>
 <!-- scripts for bootstrap -->
+
 <script type="text/javascript" src="../javascript/html2canvas.js"></script>
 <script type="text/javascript" src="../javascript/jspdf.min.js"></script>
 <script type="text/javascript">
