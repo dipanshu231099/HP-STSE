@@ -3,3 +3,6 @@
 config.php
 DBSchema.sql
 *.sql
+*.Identifier
+*.todo
+exp.sql 

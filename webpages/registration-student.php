@@ -102,6 +102,8 @@ $sql = "SELECT name FROM Schools";
   		<div class="text-center">
   			<button type="submit" class="btn btn-primary">Submit</button>
   		</div>
+		  <br>
+		  <br>
 	</form>
 	</div>
 	</div>

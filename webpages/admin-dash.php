@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<script>
+$(document).ready(function(){
 
+$("#generate").on('click', function(){
+
+    $.ajax({
+        type : "POST",
+        url : "generate-admitcard.php",
+        success : function(text){
+            alert(text);
+        }
+    });
+    return false;
+}); 
+
+});
+</script>
+</head>
 <?php 
 session_start();
 
@@ -11,14 +29,12 @@ if ($conn->connect_errno) {
     die("Failed to connect ot DB");
 }
 
-$status_obj[0] = 'Forms under revision : ';
-$status_obj[1] = 'Forms pending school approval: ';
-$status_obj[2] = 'Forms pending admin approval: ';
-$status_obj[3] = 'Forms accepted: ';
+$status_obj[2] = 'Applications received (waiting to be processed) : ';
+$status_obj[3] = 'Final Applications (Admit Card generated) : ';
 
 $status = $_GET['status'];
 if(!isset($status)){
-	header("Location: school-dash.php?status=1");
+	header("Location: admin-dash.php?status=2");
     die();
 }
 
@@ -26,25 +42,17 @@ $year = date("Y");
 $type = $_SESSION['type'];
 $email = $_SESSION['email'];
 
-if($type != 'school'){
+if($type != 'admin'){
 	header("Location: index.php");
     die();
 }
 
-$sql_tmp = "SELECT id FROM Schools WHERE email='$email'";
-if($result=$conn->query($sql_tmp)){
-	while($row=$result->fetch_assoc()){
-		$school = $row['id'];
-	}
-}
+$sql = "SELECT T2.submitted_at AS submitted_at, T1.ntseid AS ntseID, T1.schoolRegNo AS schoolID,T1.firstname AS fName,T1.lastname AS lName FROM Students_$year AS T1 INNER JOIN Students_Application_$year AS T2 ON T1.email=T2.email AND T2.status=$status ORDER BY T2.submitted_at ASC";
+
+?>
 
 
-$sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fName,T1.lastname AS lName FROM Students_$year AS T1 INNER JOIN Students_Application_$year AS T2 ON T1.school=$school AND T1.email=T2.email AND T2.status=$status";
-
- ?>
-
-
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- bootstrap css -->
@@ -61,10 +69,8 @@ $sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fN
 				Application Status
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="school-dash.php?status=1">Pending School Approval</a>
-				<a class="dropdown-item" href="school-dash.php?status=2">Pending Admin Approval</a>
-				<a class="dropdown-item" href="school-dash.php?status=0">Under Revision</a>
-				<a class="dropdown-item" href="school-dash.php?status=3">Accepted</a>
+				<a class="dropdown-item" href="admin-dash.php?status=2">Pending Admit Card Generation</a>
+				<a class="dropdown-item" href="admin-dash.php?status=3">Final Applicants (Admit Card generated)</a>
 			</div>
 		</div>
 	</div>
@@ -77,8 +83,32 @@ $sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fN
 			}
 		?>
 	</div>
-
-	<table class="table table-striped">
+    <?php
+        if ($status == 2)
+        {
+            echo "<div class='text-center'>";
+                // echo "<input type='button' class=\"btn btn-success\" value='Generate Admit Card' id='generate'>";
+                echo '<form action="generate-admitcard.php" method="get">';
+                    echo '<input type="submit" class="btn btn-success" value="Generate Admit Card">';
+				echo '</form>'; 
+				echo "<br>";
+				echo '<form action="download_excel_data.php?status=2" method="get">';
+                    echo '<input type="submit" class="btn btn-info" value="Download Data">';
+                echo '</form>';
+            echo "</div>";
+            echo "<br>";
+		}
+		else if ($status == 3)
+		{
+			echo "<div class='text-center'>";
+				echo '<form action="download_excel_data.php?status=3" method="get">';
+                    echo '<input type="submit" class="btn btn-info" value="Download Data">';
+                echo '</form>';
+            echo "</div>";
+            echo "<br>";
+		}
+    ?>
+	<table class="table table-striped" >
 	  <thead class="thead-dark">
 	    <tr>
 	      <th>NTSE ID(Reg No.)</th>
@@ -88,7 +118,7 @@ $sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fN
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <?php 
+        <?php 
 	    	if ($result) {
 			    while($row = $result->fetch_assoc()){
 			    	echo "<tr>";
@@ -102,7 +132,7 @@ $sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fN
 							echo $row['fName'].' '.$row['lName'];
 			    		echo "</td>";
 			    		echo "<td>";
-			    			echo "<a href='school-approval.php?ntseid=".$row['ntseID']."'>link</a>";
+			    			echo "<a href='application-view.php?ntseid=".$row['ntseID']."'>link</a>";
 			    		echo "</td>";
 			    	echo "</tr>";
 			    }

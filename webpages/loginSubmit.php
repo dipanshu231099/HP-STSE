@@ -9,10 +9,16 @@ if ($conn->connect_errno) {
     die("Failed to connect ot DB");
 }
 
+if (!in_array($_POST['type'], ['student', 'admin', 'school'])) {
+    header("Location: index.php");
+}
+
 if(isset($_POST['type'])){
+
     $email = $_POST['email'];
     $password = $_POST['password'];
     $type = $_POST['type'];
+
     if($_POST['type']=="student"){
         $year = date("Y");
         $table = "Students_$year";
@@ -23,7 +29,9 @@ if(isset($_POST['type'])){
     else if($_POST['type']=='school'){
         $table = "Schools";
     }
+
     $query = "SELECT * FROM `$table` WHERE email=\"$email\" and password=\"$password\";";
+
     if (($result = $conn->query($query)) && (mysqli_num_rows($result)>0)) {
         $row = $result -> fetch_assoc();
         $_SESSION['loginStatus'] = 1;
@@ -36,6 +44,10 @@ if(isset($_POST['type'])){
         }
         else if($type=='school'){
             header("Location: school-dash.php");
+            die();
+        }
+        else if ($type=='admin') {
+            header("Location: admin-dash.php");
             die();
         }
     } else {

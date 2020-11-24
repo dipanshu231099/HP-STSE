@@ -41,7 +41,11 @@ if ($conn->connect_errno) {
             <center><img src="green.png" alt="" style="width:150px;height:150px"; ></center>
             <h3 class="text-center main-heading"> <?php echo "Dear $naam "?> your application is submitted. <br>Wait till your School Principal approves your application. For any query contact xxxx or you can email at xx@xx.xx"</h3>
 
-          <?php } 
+          <?php }
+          else if ($status == 3)
+          { 
+
+          } 
         else { ?>
             <h2 class="text-center main-heading"> You are good to go to fill the application form now...</h2>
             <div class="container">

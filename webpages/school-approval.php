@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<head>
+  <style>
+  .html2canvas-container { width: 5000px !important; height: 5000px !important; }
+  </style>
+</head>
+
 <html lang="en">
 
 <?php 
@@ -21,19 +27,12 @@ $year = date("Y");
 $type = $_SESSION['type'];
 $email = $_SESSION['email'];
 
-if($type != 'school'){
+if($type != 'school' && $type != 'admin'){
   header("Location: index.php");
     die();
 }
 
-$sql_tmp = "SELECT id FROM Schools WHERE email='$email'";
-if($result=$conn->query($sql_tmp)){
-  while($row=$result->fetch_assoc()){
-    $school = $row['id'];
-  }
-}
-
-$sql = "SELECT * FROM Students_2020 AS T1 INNER JOIN Students_Application_2020 AS T2 ON T1.school=$school AND T1.email=T2.email WHERE T1.ntseid=$ntseid";
+$sql = "SELECT * FROM Students_2020 AS T1 INNER JOIN Students_Application_2020 AS T2 ON T1.email=T2.email WHERE T1.ntseid=$ntseid";
 
 $result = $conn->query($sql);
 if(!$result){
@@ -55,7 +54,7 @@ $status = $result['status'];
 <body>
   <?php include 'header.php'; ?>
 
-  <div class="container">
+  <div class="container" id="AdmitCard">
     <div class="col-sm-12">
       <p class="alert alert-primary text-center customTop" role="alert">
         Application Form 
@@ -65,7 +64,8 @@ $status = $result['status'];
     <div class="row">
        <div class="col-sm-12 login-form">
 
-      <?php echo "<form action='school-accept.php?ntseid=".$ntseid."' method='post'>" ?>
+       <?php echo "<form action='school-accept.php?ntseid=".$ntseid."' method='post'>" ?>
+
         <div class="col-sm-12">
           <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
           Personal Details
@@ -277,7 +277,6 @@ $status = $result['status'];
             <?php echo $result['aadhar'] ?>
           </div>
         </div>
-
       
         <div class="col-sm-12">
           <p class="alert alert-primary" style="margin-top: 2.5%;" role="alert">
@@ -318,7 +317,12 @@ $status = $result['status'];
         echo "Note: Please do fill feedback if sent for Revision";
         echo "</div>";
       }
+      if ($status == 3) {
+        // echo '<button class="btn btn-success" id="genPdf">Download Admit Card</button>';
+        echo '<button class="btn btn-success" id="genPdf"><a href="javascript:genPDF()">Download PDF</a> </button>';
+      }
       ?>
+
       <br>
       <br>
       <br>
@@ -330,6 +334,28 @@ $status = $result['status'];
   <?php include 'footer.php'; $conn->close(); ?>
 </body>
 <!-- scripts for bootstrap -->
+<script type="text/javascript" src="../javascript/html2canvas.js"></script>
+<script type="text/javascript" src="../javascript/jspdf.min.js"></script>
+<script type="text/javascript">
+function genPDF()
+{
+  html2canvas(document.getElementById("AdmitCard"),{
+  onrendered:function(canvas){
+
+  var img=canvas.toDataURL("image/png");
+  console.log(img);
+  var doc = new jsPDF("p", "mm", "a4");
+  var width = doc.internal.pageSize.width;
+  var height = doc.internal.pageSize.height;
+  doc.addImage(img,'JPEG', 0, 2, width, height);
+  doc.save('test.pdf');
+  }
+
+  });
+
+}
+</script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

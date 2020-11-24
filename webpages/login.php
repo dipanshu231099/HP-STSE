@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+session_destroy();
 session_start();
 $type = $_GET['type'];
 $_POST['type'] = $_GET['type'];
