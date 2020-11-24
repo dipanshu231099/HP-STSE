@@ -102,7 +102,7 @@ $sql = "SELECT T1.ntseid AS ntseID,T1.schoolRegNo AS schoolID,T1.firstname AS fN
 							echo $row['fName'].' '.$row['lName'];
 			    		echo "</td>";
 			    		echo "<td>";
-			    			echo "<a href='application-view.php?ntseid=".$row['ntseID']."'>link</a>";
+			    			echo "<a href='school-approval.php?ntseid=".$row['ntseID']."'>link</a>";
 			    		echo "</td>";
 			    	echo "</tr>";
 			    }
