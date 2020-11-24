@@ -70,7 +70,9 @@ $status = $result['status'];
           </p>
         </div>
 
-
+        <?php $re = $result['email']; ?>
+        <img src="uploads/<?php echo $re; ?>.jpg" style="width:100px;height:150px;margin:0px 50px 10px 10px">
+      
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="appname">Applicant's Name</label>

@@ -1,6 +1,14 @@
 <?php 
 
 session_start();
+if(isset($_POST['Submit1']))
+{ 
+
+$extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+$name = $_SESSION['email'];
+move_uploaded_file($_FILES["file"]["tmp_name"],"uploads/".$name."."."jpg");
+
+}
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
 
@@ -11,6 +19,7 @@ $conn = new mysqli($config['host'],$config['username'],$config['password'],$conf
 if ($conn->connect_errno) {
     die("Failed to connect ot DB");
 }
+
 function mailto($student_email , $message){
 	
 	$mail = new PHPMailer(true); 
@@ -45,6 +54,9 @@ function mailto($student_email , $message){
 
 }
 
+
+
+
 $applicantname = $_POST['appname'];
 $fname = $_POST['fname'];
 $mname = $_POST['mname'];
@@ -77,6 +89,11 @@ $mobile = $_POST['Mobile'];
 $adhar = $_POST['adhar'];
 $exam_center = $_POST['exam_center'];
 
+	$sql2= "DELETE FROM Students_Application_2020 where status=0 and email='$email';";
+	if($conn->query($sql2) !== TRUE ){
+		# show error
+		echo "Error: ".$sql."<br>".$conn->error;
+	}
 
 	$sql = "INSERT INTO Students_Application_2020 (applicantname,fathername,mothername,gender,date_of_birth,area,caste,disability,add1,add2,state,district,pincode,type_of_ins,stu_of_ken,med_of_exam1,med_of_exam2,fedu,focc,medu,mocc,family_members,brothers,sisters,level_in_family,income,email,contact_number,aadhar,telephone,exam_center) VALUES('$applicantname', '$fname', '$mname', '$gender', '$dob', '$area', '$caste', '$disability', '$add1', '$add2', '$state', '$district', '$pincode', '$typeofins', '$kennavo', '$meda', '$medb', '$fedu', '$focc', '$medu', '$mocc', '$family', '$brothers', '$sisters', '$brosis', '$pincome', '$email', '$mobile', '$adhar', '$Telephone', '$exam_center')";
 
