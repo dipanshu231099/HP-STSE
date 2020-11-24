@@ -18,7 +18,7 @@
     // get data
     if ($status == 2)
     {
-        $query = "select T2.submitted_at, T2.email, T1.firstname, T1.lastname, T1.ntseid, T1.school, T1.`schoolRegNo`, T2.applicantname,T2.fathername,T2.mothername,T2.gender,T2.date_of_birth,T2.area,T2.caste,T2.disability,T2.add1,T2.add2,T2.state,T2.district,T2.pincode,T2.type_of_ins,T2.stu_of_ken,T2.med_of_exam1,T2.med_of_exam2,T2.fedu,T2.focc,T2.medu,T2.mocc,T2.family_members,T2.brothers,T2.sisters,T2.level_in_family,T2.income,T2.contact_number,T2.aadhar,T2.telephone, T2.exam_center  from Students_$year AS T1 INNER JOIN Students_Application_$year AS T2 ON T1.email=T2.email AND T2.status=3 order by T2.submitted_at ASC;";
+        $query = "select T2.submitted_at, T2.email, T1.firstname, T1.lastname, T1.ntseid, T1.school, T1.`schoolRegNo`, T2.applicantname,T2.fathername,T2.mothername,T2.gender,T2.date_of_birth,T2.area,T2.caste,T2.disability,T2.add1,T2.add2,T2.state,T2.district,T2.pincode,T2.type_of_ins,T2.stu_of_ken,T2.med_of_exam1,T2.med_of_exam2,T2.fedu,T2.focc,T2.medu,T2.mocc,T2.family_members,T2.brothers,T2.sisters,T2.level_in_family,T2.income,T2.contact_number,T2.aadhar,T2.telephone, T2.exam_center  from Students_$year AS T1 INNER JOIN Students_Application_$year AS T2 ON T1.email=T2.email AND T2.status=2 order by T2.submitted_at ASC;";
     }
     else if ($status == 3)
     {

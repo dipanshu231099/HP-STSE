@@ -19,7 +19,7 @@ if ($conn->connect_errno) {
 
 $ntseid = $_GET['ntseid'];
 if(!isset($ntseid)){
-  header("Location: school-dash.php?status=1");
+  header("Location: admin-dash.php?status=3");
     die();
 }
 

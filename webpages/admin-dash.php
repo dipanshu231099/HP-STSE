@@ -130,7 +130,7 @@ $sql = "SELECT T2.submitted_at AS submitted_at, T1.ntseid AS ntseID, T1.schoolRe
 							echo $row['fName'].' '.$row['lName'];
 			    		echo "</td>";
 			    		echo "<td>";
-			    			echo "<a href='application-view.php?ntseid=".$row['ntseID']."'>link</a>";
+			    			echo "<a href='application_view_admin.php?ntseid=".$row['ntseID']."'>link</a>";
 			    		echo "</td>";
 			    	echo "</tr>";
 			    }
