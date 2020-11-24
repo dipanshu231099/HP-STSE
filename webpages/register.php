@@ -33,6 +33,15 @@ session_start();
 
         <h1>Check your Email for OTP after submitting</h1>
 	   </form>
+
+	   <?php if(isset($_SESSION['registerStatus']) && $_SESSION['registerStatus']==-1) {?>
+        <div class="col-sm-12">
+          <p class="alert alert-danger" style="margin-top: 2.5%;" role="alert">
+            Registration unsuccessful
+          </p>
+        </div>
+      <?php } ?>
+	   
 	 </div>
 	</div>
 

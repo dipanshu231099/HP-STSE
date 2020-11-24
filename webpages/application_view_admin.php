@@ -72,7 +72,6 @@ $status = $result['status'];
         <div class="form-group col-md-6">
           <label for="appname">Applicant's Name</label>
           <div>
-            <?php echo $result ?>
             <?php echo $result['applicantname'] ?>
           </div>
         </div>
