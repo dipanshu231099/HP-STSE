@@ -92,18 +92,16 @@ $sql = "SELECT T2.submitted_at AS submitted_at, T1.ntseid AS ntseID, T1.schoolRe
                     echo '<input type="submit" class="btn btn-success" value="Generate Admit Card">';
 				echo '</form>'; 
 				echo "<br>";
-				echo '<form action="download_excel_data.php?status=2" method="get">';
-                    echo '<input type="submit" class="btn btn-info" value="Download Data">';
-                echo '</form>';
+				// echo '<form action="download_excel_data.php?status=2" method="get">';
+                echo '<a href= "download_excel_data.php?status=2" type="submit" class="btn btn-info" value="Download Data">Download Data</a>';
+                // echo '</form>';
             echo "</div>";
             echo "<br>";
 		}
 		else if ($status == 3)
 		{
 			echo "<div class='text-center'>";
-				echo '<form action="download_excel_data.php?status=3" method="get">';
-                    echo '<input type="submit" class="btn btn-info" value="Download Data">';
-                echo '</form>';
+			echo '<a href= "download_excel_data.php?status=3" type="submit" class="btn btn-info" value="Download Data">Download Data</a>';
             echo "</div>";
             echo "<br>";
 		}

@@ -99,4 +99,3 @@ $exam_center = $_POST['exam_center'];
 
 $conn->close();
 ?>
-  	
