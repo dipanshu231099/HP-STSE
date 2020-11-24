@@ -1,16 +1,17 @@
 /* import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); */
+
 section .section-title {
     text-align: center;
     color: #007b5e;
-    /* margin-bottom: 10px; */
     text-transform: uppercase;
 }
 #footer {
     background: #2e2e2e !important;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: -5%;
     width: 100%;
     color: white;
+    margin-top: 2.5%;
     padding: 0.5%;
 }
 #footer h5{

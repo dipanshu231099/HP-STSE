@@ -19,9 +19,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span>Welcome <?php echo $_SESSION['email'];?></a>
           </li>
+
+          <?php
+          $dashborad_url = "dashboard.php";
+          if($_SESSION['type']=="admin") $dashborad_url = "admin-dash.php";
+          else if($_SESSION['type']=="school") $dashborad_url = "school-dash.php";
+          ?>
+
           <li class="nav-item">
-            <a class="nav-link" href="dashboard.php"><button role="button" class="btn btn-primary">Dashboard</button></a>
+            <a class="nav-link" href="<?php echo $dashborad_url?>"><button role="button" class="btn btn-primary">Dashboard</button></a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="logout.php"><button role="button" class="btn btn-primary">Logout</button></a>
           </li>
