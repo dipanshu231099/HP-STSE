@@ -88,12 +88,25 @@ $sql = "SELECT T2.submitted_at AS submitted_at, T1.ntseid AS ntseID, T1.schoolRe
         {
             echo "<div class='text-center'>";
                 // echo "<input type='button' class=\"btn btn-success\" value='Generate Admit Card' id='generate'>";
-                echo '<form action="generate-admitcard.php" method="post">';
+                echo '<form action="generate-admitcard.php" method="get">';
                     echo '<input type="submit" class="btn btn-success" value="Generate Admit Card">';
+				echo '</form>'; 
+				echo "<br>";
+				echo '<form action="download_excel_data.php?status=2" method="get">';
+                    echo '<input type="submit" class="btn btn-info" value="Download Data">';
                 echo '</form>';
             echo "</div>";
             echo "<br>";
-        }
+		}
+		else if ($status == 3)
+		{
+			echo "<div class='text-center'>";
+				echo '<form action="download_excel_data.php?status=3" method="get">';
+                    echo '<input type="submit" class="btn btn-info" value="Download Data">';
+                echo '</form>';
+            echo "</div>";
+            echo "<br>";
+		}
     ?>
 	<table class="table table-striped" >
 	  <thead class="thead-dark">
