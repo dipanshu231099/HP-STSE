@@ -294,9 +294,15 @@ $status = $result['status'];
           </p>
         </div>
         <div class="form-group col-md-12 customBottom">
-          <label for="exam_center">Preferred Exam Center</label>
+          <label for="exam_center">STSE Roll Number</label>
           <div>
-            <?php echo $result['exam_center'] ?>
+            <?php echo $result['ntse_rollno'] ?>
+          </div>
+        </div>
+        <div class="form-group col-md-12 customBottom">
+          <label for="exam_center">Allocated Exam Center</label>
+          <div>
+            <?php echo $result['alloted_center'] ?>
           </div>
         </div>
       </div>
