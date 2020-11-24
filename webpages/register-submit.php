@@ -36,20 +36,28 @@ if($password == $passwordConfirm){
 		echo $sql;
 		if($conn->query($sql) !== TRUE ){
 			# show error
-			echo "Error: ".$sql."<br>".$conn->error;
+			$_SESSION['registerStatus']=-1;
+			header("Location: register.php");
+			die();
 		}
 	}
 	else{
 		$_SESSION["otp"] = "some random thing that user can't guess. He need to now get another otp";
-
-		
+		$_SESSION['registerStatus']=-1;
+		header("Location: register.php");
+		die();
 	}
 
 	$_SESSION["otp"] = "some random thing that user can't guess. He need to now get another otp";
 	# set login_session=1
 	# redirect to dashboard
+	session_destroy();
+	session_start();
 
-	header("Location: index.php");
+	$_SESSION['loginStatus'] = 1;
+    $_SESSION['type'] = 'student';
+    $_SESSION['email']=$email;
+	header("Location: dashboard.php");
 	die();
 }
 else{
