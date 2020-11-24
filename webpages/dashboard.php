@@ -42,7 +42,15 @@ if ($conn->connect_errno) {
             <h3 class="text-center main-heading"> <?php echo "Dear $naam "?> your application is submitted. <br>Wait till your School Principal approves your application. For any query contact xxxx or you can email at xx@xx.xx"</h3>
 
           <?php } 
-
+          else if ($status == 3)
+          {
+            ?>
+            <h3 class="text-center main-heading"> <?php echo "Dear $naam "?> your Admit Card for HTSE <?php echo date("Y"); ?> has been generated!<br></h3>
+            <form action="application_view_stud.php" method="post" class="px-auto text-center my-5">
+              <input type="submit" class="btn btn-success btn-lg" value="Download Admit Card">
+            </form>
+            <?php 
+          } 
         else if ($status==0) { ?>
             <h2 class="text-center main-heading"> Your Application from was rejected. Please fill it again...</h2>
             <div class="container">
