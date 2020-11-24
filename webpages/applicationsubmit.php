@@ -21,9 +21,7 @@ if ($conn->connect_errno) {
 }
 
 function mailto($student_email , $message){
-	
 	$mail = new PHPMailer(true); 
-
 	try { 
 		$mail->SMTPDebug = 2;									 
 		$mail->isSMTP();											 
@@ -33,11 +31,8 @@ function mailto($student_email , $message){
 		$mail->Password = 'mandi_hp_in';						 
 		$mail->SMTPSecure = 'tls';							 
 		$mail->Port	 = 587; 
-
 		$mail->setFrom('mandibtech@gmail.com', 'Name');		 
 		$mail->addAddress($student_email); 
-		 
-		
 		$mail->isHTML(true);								 
 		$mail->Subject = 'HP_STSE'; 
 		$mail->Body = $message; 
@@ -45,17 +40,10 @@ function mailto($student_email , $message){
 		$mail->send(); 
 		echo "Mail has been sent successfully!"; 
 	} catch (Exception $e) { 
-		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"; 
+		die("Message could not be sent. Mailer Error: {$mail->ErrorInfo}") ; 
 	}
-
 	return 1;
-	
-
-
 }
-
-
-
 
 $applicantname = $_POST['appname'];
 $fname = $_POST['fname'];
@@ -106,14 +94,10 @@ $exam_center = $_POST['exam_center'];
 		$no_use_variable = mailto($email , $message);
 		header("Location: dashboard.php");
 	}
-
 	# set login_session=1
 	# redirect to dashboard
-
 	header("Location: dashboard.php");
 	die();
 
 
 $conn->close();
-?>
-  	
