@@ -6,3 +6,4 @@ DBSchema.sql
 *.Identifier
 *.todo
 exp.sql 
+webpages/uploads
