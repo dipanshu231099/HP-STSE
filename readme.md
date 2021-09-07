@@ -2,6 +2,9 @@
 
 -----
 
+## Deployed app
+https://hpstse.herokuapp.com/index.php
+
 ## Requirements:
 	
 ### Three types of users: Students, Schools, Administrators
